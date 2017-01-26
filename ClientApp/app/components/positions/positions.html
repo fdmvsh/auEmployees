@@ -1,0 +1,18 @@
+<template>
+    <h1>Positions</h1>
+
+    <p if.bind="!positions"><em>Loading...</em></p>
+
+    <table if.bind="positions" class="table">
+        <thead>
+            <tr>
+                <th>Positions:</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr repeat.for="position of positions">
+                <td>${position}</td>
+            </tr>
+        </tbody>
+    </table>
+</template>

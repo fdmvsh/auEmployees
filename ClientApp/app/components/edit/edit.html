@@ -1,0 +1,71 @@
+﻿<template>
+    <require from="../converters"></require>
+    <require from="../date-picker"></require>
+    <section>
+        <h2>Edit employee</h2>
+        <form class="form-horizontal" role="form">
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="_id">ID:</label>
+                <div class="col-sm-10">
+                    <input disabled type="text" value.bind="_id" class="form-control" id="_id" placeholder="ID">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="firstName">First name:</label>
+                <div class="col-sm-10">
+                    <input type="text" value.bind="firstName" class="form-control" id="firstName" placeholder="First name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="lastName">Last name:</label>
+                <div class="col-sm-10">
+                    <input type="text" value.bind="lastName" class="form-control" id="lastName" placeholder="Last name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="address">Address:</label>
+                <div class="col-sm-10">
+                    <input type="text" value.bind="address" class="form-control" id="address" placeholder="Address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="birthDate">Birth date:</label>
+                <div class="col-sm-10">                    
+                    <date-picker value.two-way="birthDate | dateFormat"></date-picker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="startDate">Start date:</label>
+                <div class="col-sm-10">
+                    <date-picker value.two-way="startDate | dateFormat"></date-picker>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="position">Position:</label>
+                <div class="col-sm-10">
+                    <select value.bind="position" class="form-control" id="position">
+                        <option repeat.for="option of positions" value.bind="option">${option}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="position">Position history:</label>
+                <div class="col-sm-10">
+                    <textarea disabled type="text" value.bind="formerPositions" class="form-control" id="formerPositions" placeholder="History of positions"></textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="address">Salary:</label>
+                <div class="col-sm-10">
+                    <input type="text" value.bind="salary" class="form-control" id="salary" placeholder="Salary">
+                </div>
+            </div>
+            <div class="form-group" show.bind="isUpdated">
+                <span class="label label-success" show.bind="statusCode==200">Updated.</span>
+                <span class="label label-danger" show.bind="statusCode!=200">Not updated.</span>
+            </div>
+            <button type="submit" class="btn btn-primary" click.delegate="editEmployee()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Submit</button>
+            <a href="#/home" class="btn btn-default"><span class="glyphicon glyphicon-th-list" aria-hidden="true"></span> Return</a>
+        </form>
+    </section>
+</template>

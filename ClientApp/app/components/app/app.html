@@ -1,0 +1,10 @@
+<template>
+    <require from="../navmenu/navmenu.html"></require>
+    <require from="./app.css"></require>
+    <navmenu router.bind="router"></navmenu>
+    <div class='container-fluid'>
+        <div class='col-xs-12'>
+            <router-view></router-view>
+        </div>
+    </div>
+</template>
